@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Викторина</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% if question %}
+        <h1>{{question}}</h1>
+    {% endif %}
+    <from method="post" action="lest">
+        <input type="hidden" name="q_id" value="{{quest_id}}">
+        <div class="other-dic">
+            {% for answer in answer_list %}
+                <div class="from_radio_btn">
+                    <input type="radio" name="ans_text" value="{{ answer }}">
+                </div>
+            {% endfor %}
+            <div class="inner-div">
+                <p>
+                    <input class="btn" type="submit" value="Ответить">
+                </p>
+            </div>
+        </div>
+    </from>
